@@ -1,0 +1,14 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+<div class="row">
+    <form action="{{ path("admin_upload_log") }}" method="post">
+        <div class="form-group">
+            <label for="exampleInputFile">Choose log file to upload</label>
+            <input type="log_file" id="exampleInputFile">
+        </div>
+    </form>
+</div>
+
+
+{% endblock %}

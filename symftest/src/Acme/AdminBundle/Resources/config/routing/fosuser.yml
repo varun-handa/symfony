@@ -1,0 +1,30 @@
+admin:
+    path:     /
+    defaults: { _controller: "AcmeAdminBundle:FosUser:index" }
+
+admin_show:
+    path:     /{id}/show
+    defaults: { _controller: "AcmeAdminBundle:FosUser:show" }
+
+admin_new:
+    path:     /new
+    defaults: { _controller: "AcmeAdminBundle:FosUser:new" }
+
+admin_create:
+    path:     /create
+    defaults: { _controller: "AcmeAdminBundle:FosUser:create" }
+    requirements: { _method: post }
+
+admin_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AcmeAdminBundle:FosUser:edit" }
+
+admin_update:
+    path:     /{id}/update
+    defaults: { _controller: "AcmeAdminBundle:FosUser:update" }
+    requirements: { _method: post|put }
+
+admin_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AcmeAdminBundle:FosUser:delete" }
+    requirements: { _method: post|delete }

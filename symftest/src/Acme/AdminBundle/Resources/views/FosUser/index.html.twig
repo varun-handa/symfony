@@ -1,0 +1,56 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <div class="row">
+        <div class="col-md-2">
+            <h3>User list</h3>
+        </div>
+        <div class="col-md-4">
+            <h3><a href="{{ path('fos_user_security_logout') }}">Logout</a></h3>
+        </div>
+    </div>
+
+
+    <table class="table records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('admin_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.username }}</td>
+                <td>{{ entity.email }}</td>
+                <td>
+                <ul class="nav nav-pills">
+                    <li role="presentation" class="active">
+                        <a href="{{ path('admin_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li  role="presentation" class="active">
+                        <a href="{{ path('admin_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="row">
+        <a class="btn btn-primary" href="{{ path('admin_new') }}">
+            Create a new entry
+        </a>
+
+        <a class="btn btn-primary" href="{{ path('log') }}">
+            Vew Log data OR Upload Log File
+        </a>
+    </div>
+
+
+
+    {% endblock %}

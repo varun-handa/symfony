@@ -1,0 +1,20 @@
+Acme\AdminBundle\Entity\Log:
+    type: entity
+    table: log
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        time:
+            type: string
+            length: '200'
+        ip:
+            type: string
+            length: '20'
+        url:
+            type: string
+            length: '100'
+    lifecycleCallbacks: {  }

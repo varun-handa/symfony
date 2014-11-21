@@ -1,0 +1,11 @@
+acme_admin:
+    resource: "@AcmeAdminBundle/Resources/config/routing/fosuser.yml"
+    prefix:   /admin
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+    prefix:   /
+
+acme_admin_log:
+    resource: "@AcmeAdminBundle/Resources/config/routing/log.yml"
+    prefix:   /admin/log

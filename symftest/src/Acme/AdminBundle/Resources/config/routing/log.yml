@@ -1,0 +1,35 @@
+log:
+    path:     /
+    defaults: { _controller: "AcmeAdminBundle:Log:index" }
+
+log_show:
+    path:     /{id}/show
+    defaults: { _controller: "AcmeAdminBundle:Log:show" }
+
+log_new:
+    path:     /new
+    defaults: { _controller: "AcmeAdminBundle:Log:new" }
+
+log_create:
+    path:     /create
+    defaults: { _controller: "AcmeAdminBundle:Log:create" }
+    requirements: { _method: post }
+
+log_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "AcmeAdminBundle:Log:edit" }
+
+log_update:
+    path:     /{id}/update
+    defaults: { _controller: "AcmeAdminBundle:Log:update" }
+    requirements: { _method: post|put }
+
+log_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "AcmeAdminBundle:Log:delete" }
+    requirements: { _method: post|delete }
+
+log_upload:
+    path:     /upload
+    defaults: { _controller: "AcmeAdminBundle:Log:upload" }
+    requirements: { _method: post }

@@ -1,0 +1,11 @@
+acme_admin_log:
+    resource: "@AcmeAdminBundle/Resources/config/routing/log.yml"
+    prefix:   /log
+
+acme_admin_admin:
+    resource: "@AcmeAdminBundle/Resources/config/routing/fosuser.yml"
+    prefix:   /admin
+
+acme_admin_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: AcmeAdminBundle:Default:index }

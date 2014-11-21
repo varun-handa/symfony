@@ -1,0 +1,65 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Log Details</h1>
+
+    <div class="row">
+        <form action="{{ path("log_upload") }}" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="exampleInputFile">Choose log file to upload</label>
+                <input name="log_file" type="file" id="exampleInputFile">
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-success">Upload</button>
+            </div>
+        </form>
+    </div>
+
+
+    <table class="table records_list" id="myTable">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Time</th>
+                <th>Ip</th>
+                <th>Url</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('log_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{% if entity.time %}{{ entity.time}}{% endif %}</td>
+                <td>{{ entity.ip }}</td>
+                <td>{{ entity.url }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('log_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('log_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('log_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+
+
+    <script>
+        $(document).ready(function(){
+            $('#myTable').DataTable();
+        });
+    </script>
+    {% endblock %}
